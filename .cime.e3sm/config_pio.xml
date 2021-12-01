@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<config_pio version="1.0">
+
+  <entry id="PIO_TYPENAME">
+    <values>
+      <value mach="greatlakes">netcdf</value>
+      
+    </values>
+  </entry>
+
+</config_pio>

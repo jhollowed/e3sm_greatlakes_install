@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config_compilers version="2.0">
+
+<compiler MACH="greatlakes">
+
+  <!-- The header of this file indicates that we should not use SLIBS here-->
+  <!-- https://github.com/E3SM-Project/E3SM/blob/e3d7f9bce027f99a021dedf15929d0dba1b8bacb/cime/config/e3sm/machines/config_compilers.xml -->
+  <!--  
+  <SLIBS>
+    <append> -L$(NCDIR)/lib -lnetcdf -L$(NFDIR)/lib -lnetcdff </append>
+  </SLIBS>
+  -->
+  
+  <!-- needed here for E3SM, not just in config_machines -->
+  <!-- not sure if this should go here or in the compiler section below; trying both -->
+  <!-- https://github.com/E3SM-Project/E3SM/issues/2974 -->
+  <NETCDF_C_PATH>$ENV{NCDIR}</NETCDF_C_PATH>
+  <NETCDF_FORTRAN_PATH>$ENV{NFDIR}</NETCDF_FORTRAN_PATH>
+</compiler>
+
+<compiler COMPILER="intel" MACH="greatlakes">
+  <CFLAGS>
+    <append DEBUG="FALSE"> -xCORE-AVX2 </append>
+    <append> -I$(NCDIR)/include </append> 
+  </CFLAGS>
+  <FFLAGS>
+    <append DEBUG="FALSE"> -xCORE-AVX2 </append>
+    <append> -I$(NFDIR)/include </append>
+  </FFLAGS>
+
+  <!-- replaces usage of SLIBS variable above -->
+  <LDFLAGS>
+    <append> -L$(NCDIR)/lib -lnetcdf -L$(NFDIR)/lib -lnetcdff </append>
+  </LDFLAGS>
+  
+
+  <!-- SET to FALSE for intel 17 and 18 TRUE otherwise -->
+  <HAS_F2008_CONTIGUOUS>FALSE</HAS_F2008_CONTIGUOUS>
+
+  <!-- needed here for E3SM, not just in config_machines -->
+  <!-- https://github.com/E3SM-Project/E3SM/issues/2974 -->
+  <NETCDF_C_PATH>$ENV{NCDIR}</NETCDF_C_PATH>
+  <NETCDF_FORTRAN_PATH>$ENV{NFDIR}</NETCDF_FORTRAN_PATH>
+</compiler>
+
+</config_compilers>

@@ -1,0 +1,17 @@
+# from CJ CESM install instructions:
+# https://docs.google.com/document/d/1VHEWx3Isxs7csE2tv1bxtTvBkUIVU_LK_jocxjxy1Tw/edit?usp=sharing
+#export MY_CESM_ROOT=/home/hollowed/CESM/cesm2.2
+#export DIN_LOC_ROOT=/home/hollowed/CESM/cesm2.2_cases/inputData
+#export MY_CESM_CASES=/home/hollowed/CESM/cesm2.2_cases
+#export NFDIR=/sw/arcts/centos7/stacks/intel/18.0.5/netcdf-fortran/4.4.5
+#export MY_SLURM_ACCOUNT=cjablono1
+#export MY_CESM_SCRATCH=/scratch/cjablono_root/cjablono1/hollowed/CESM
+
+# for E3SM
+INPUT_NAME=inputData 
+export MY_E3SM_ROOT=/home/hollowed/E3SM/CLDERA-E3SM
+export DIN_LOC_ROOT=${MY_E3SM_ROOT}/${INPUT_NAME}
+export MY_E3SM_CASES=/home/hollowed/E3SM/E3SMv2_cases
+export NFDIR=/sw/arcts/centos7/stacks/intel/18.0.5/netcdf-fortran/4.4.5
+export MY_SLURM_ACCOUNT=cjablono1
+export MY_E3SM_SCRATCH=/scratch/cjablono_root/cjablono1/hollowed/E3SM

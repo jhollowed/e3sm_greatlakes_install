@@ -1,0 +1,5 @@
+[main]
+CIME_MODEL=e3sm
+MAIL_TYPE=end,fail
+[create_test]
+JOB_QUEUE=standard
