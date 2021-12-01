@@ -19,10 +19,10 @@ git clone git@github.com:jhollowed/e3sm_greatlakes_install.git
 ```
     
 #### 3. 
-Source `setup.sh` in your `bashrc`:
+Source `e3sm_setup.sh` in your `bashrc`:
     
 ``` 
-source ~/e3sm_greatlakes_install/setup.sh
+source ~/e3sm_greatlakes_install/e3sm_setup.sh
 ```
     
 This should replace any content in your `.bashrc` or other sources setup files relevant to CESM or any other installs.
