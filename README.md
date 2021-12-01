@@ -52,6 +52,8 @@ Finally, we need the GreatLakes machine configuration details to be known to CIM
 ```
 cp e3sm_greatlakes_install/.cime.e3sm ~/.cime
 ```
+And be sure to rename all relevant paths to your own in `~/.cime/bash.source` 
+
 If you'd like to keep several versions of `.cime` around (e.g. for using CESM), retaining multiple versions with name modifiers (e.g. `.cime.e3sm`) and linking to `.cime` when needed is an easy solution.
 
 ## Try to compile something
