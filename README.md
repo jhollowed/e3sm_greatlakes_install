@@ -50,7 +50,7 @@ cpanm Switch
 #### 6. 
 Finally, we need the GreatLakes machine configuration details to be known to CIME (in other words, CIME needs to be [ported](https://esmci.github.io/cime/versions/master/html/users_guide/porting-cime.html)). We could edit `$CIMEROOT/config/$model/machines/config_machines.xml` and add an appropriate section for the machine, or we can use your CIME user config directory at `$HOME/.cime`. The latter method is arguably cleaner, and the one that these instructions endorse. Backup any existing contents of `.cime` that you have, and then
 ```
-cp e3sm_greatlakes_install/.cime.e3sm ~/.cime
+cp -r e3sm_greatlakes_install/.cime.e3sm ~/.cime
 ```
 And be sure to rename all relevant paths to your own in `~/.cime/bash.source` 
 
