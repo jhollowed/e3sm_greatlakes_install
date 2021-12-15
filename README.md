@@ -91,7 +91,7 @@ cd ~
 ./e3sm_greatlakes_install/run_e3sm.template.greatlakes.sh
 ```
 
-This step is currently crashing on compilation of `kokkos`, with an error
+This step is currently crashing on compilation of `kokkos`. The referenced log file will report an error
 ```
 C++14-compliant compiler detected, but unable to compile C++14 or later
 program.  Verify that Intel:18.0.5.20180823 is set up correctly (e.g.,
