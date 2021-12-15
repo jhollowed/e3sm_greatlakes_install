@@ -97,3 +97,26 @@ C++14-compliant compiler detected, but unable to compile C++14 or later
 program.  Verify that Intel:18.0.5.20180823 is set up correctly (e.g.,
 check that correct library headers are being used).
 ```
+
+
+## Attempt at a fix
+
+From Owen Hughes:
+
+My best guess about what is causing problems:
+Note the following github issue: https://github.com/trilinos/Trilinos/issues/8720
+
+This issue lays out that the E3SM dependency Kokkos is unable to compile c++14 code because the referenced version of gcc (and associated std headers) does not have support for standard features of C++14. Intel compilers such as icpc can compile with a different gcc by specifying `-gcc-name=/path/to/gcc` at compile time. Because Kokkos is the main source of problems, we have to force Kokkos (as well as the rest of E3SM) to use a more recent version of GCC.
+
+Note: the exact invocation that causes kokkos to fail to build is
+`mpicc /home/owhughes/E3SM/CLDERA-E3SM/externals/kokkos/cmake/compile_tests/cplusplus14.cpp -std=c++14`, and this succeeds if you do `mpicc /home/owhughes/E3SM/CLDERA-E3SM/externals/kokkos/cmake/compile_tests/cplusplus14.cpp -std=c++14 -gcc-name=/sw/arcts/centos7/gcc/8.2.0/bin/gcc`.
+
+If you have followed this repository's instructions up to step 8, and customized your `bash.source` file, then you can get Kokkos to succuessfully compile by adding 
+
+    <KOKKOS_OPTIONS>--cxxflags="-gcc-name=/sw/arcts/centos7/gcc/8.2.0/bin/gcc"</KOKKOS_OPTIONS> 
+    
+to `e3sm_greatlakes_install/.cime.e3sm` under the intel compiler tag (near line `53`), and then repeat step (6) above (pushing the changes to `~/.cime`). 
+
+The compile failure should then migrate a bit further along, and occur when building E3SM proper, with a deluge of error messages that indicate that E3SM is not building against the right version of gcc either.
+
+This indicates that if you can ensure that the entire cime infrastructure for E3SM searches first for gcc binaries, headers, and libraries from a more recent gcc version, it may build successfully.
