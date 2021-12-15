@@ -80,7 +80,7 @@ cd S_case
 ```
 
 #### 8. 
-Now, adding complexity and building components. First, try building a simple aquaplanet case on a coarse grid (compset 'F-EAM-AQP1' on grid 'ne4pg2_ne4pg2'). The `run_e3sm.template.sh` has been edited for this purpose. All edits have been marked with a comment beginning with `JH` in `run_e3sm.template.greatlakes.sh`. Edit the script so that the following paths reflect your own:
+Now, adding complexity and building components. First, try building a simple aquaplanet case on a coarse grid (compset 'F-EAM-AQP1' on grid 'ne4pg2_ne4pg2'). The `run_e3sm.template.sh` has been edited for this purpose. All edits (with respect to the original version of the script provided by DOE) have been marked with a comment beginning with `JH` in `run_e3sm.template.greatlakes.sh`. Some leftover hard-coded paths, such as `RUN_REFDIR`, point to locations on Chrysalis; these are not used at any time and don't need to be changed. Edit the script so that the following paths reflect your own:
 ```
 CODE_ROOT="/home/hollowed/E3SM/CLDERA-E3SM"
 CASE_ROOT="/scratch/cjablono_root/cjablono1/hollowed/E3SM/E3SMv2/${CASE_NAME}"
