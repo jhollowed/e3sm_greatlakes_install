@@ -39,13 +39,14 @@ Next, run
 ```
 cpanm LWP
 ```
-Per Owen: Then for every module listed in `CLDERA_E3SM/cime/scripts/Tools/e3sm_check_enve3`, run `cpanm {MODULENAME}`. You may need to read error messages to determine what dependencies are, because perl is terrible.
+Per Owen: Then for every module listed in `CLDERA_E3SM/cime/scripts/Tools/e3sm_check_enve3`, run `cpanm {MODULENAME}`. For our purposes, this is: 
 ```
 cpanm XML::LibXML
 cpanm XML::SAX
 cpanm XML::SAX::Exception
 cpanm Switch
 ```
+You may need to read error messages to determine what dependencies are, because perl is terrible.
 
 #### 6. 
 Finally, we need the GreatLakes machine configuration details to be known to CIME (in other words, CIME needs to be [ported](https://esmci.github.io/cime/versions/master/html/users_guide/porting-cime.html)). We could edit `$CIMEROOT/config/$model/machines/config_machines.xml` and add an appropriate section for the machine, or we can use your CIME user config directory at `$HOME/.cime`. The latter method is arguably cleaner, and the one that these instructions endorse. Backup any existing contents of `.cime` that you have, and then
