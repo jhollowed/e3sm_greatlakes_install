@@ -135,7 +135,7 @@
         <command name="load">openmpi/3.1.4</command> <!-- Has bugs openmpi/3.1.4 but seems to work! -->
         <command name="load">cmake/3.17.3</command> <!-- JH: for CESM, was 3.13.2; E3SM needs >=3.16-->
         <command name="load">hdf5/1.8.21</command>
-        <command name="load">netcdf-c/4.6.2</command>
+        <command name="load">netcdf-c/4.7.4</command>
         <command name="load">netcdf-fortran/4.4.5</command>
       </modules>
       <modules compiler="intel">
@@ -147,7 +147,7 @@
         <command name="load">openmpi/3.1.4</command> <!-- Has bugs openmpi/3.1.4 but seems to work! -->
         <command name="load">cmake/3.17.3</command> <!-- JH: for CESM, was 3.13.2; E3SM needs >=3.16-->
         <command name="load">hdf5/1.8.21</command>
-        <command name="load">netcdf-c/4.6.2</command>
+        <command name="load">netcdf-c/4.7.4</command> <!-- JH: changed to 4.7.4 for E3SM --!>
         <command name="load">netcdf-fortran/4.4.5</command>
       </modules>
     </module_system>
@@ -158,6 +158,7 @@
       <env name="NETCDF_FORTRAN_PATH">$ENV{NFDIR}</env>
       <env name="LD_LIBRARY_PATH">$ENV{LD_LIBRARY_PATH}</env>
       <env name="OMP_STACKSIZE">256M</env>
+      <env name="PATH">/sw/arcts/centos7/gcc/8.2.0/bin/gcc:$ENV{PATH}</env>
       <!--env name="MPI_TYPE_DEPTH">16</env-->
     </environment_variables>
     <!-- resource settings as defined in https://docs.python.org/2/library/resource.html -->
